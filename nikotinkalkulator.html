@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nikotin‑konverterer</title>
+  <title>Nikotinkalkulator</title>
   <style>
     body {
       font-family: Helvetica, Arial, sans-serif;
       background: #f4f4f4;
       color: #333;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
       padding: 2rem;
     }
     .pack {
@@ -23,9 +23,13 @@
       width: 320px;
       margin: 1rem;
     }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 1rem;
+    }
     .pack h2 {
       font-size: 14pt;
-      color: #A7A9AC; /* Pantone Cool Gray 2 C approximation */
+      color: #A7A9AC;
       font-weight: normal;
       text-transform: capitalize;
       margin-bottom: 1rem;
@@ -62,9 +66,36 @@
     .result strong {
       font-weight: bold;
     }
+    .explanation {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      width: 660px;
+      margin: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .explanation h2 {
+      font-size: 16px;
+      margin-bottom: 0.75rem;
+    }
+    .explanation h3 {
+      font-size: 14px;
+      margin: 0.5rem 0 0.25rem;
+    }
+    .explanation p, .explanation ul {
+      margin: 0.5rem 0;
+    }
+    .explanation ul {
+      padding-left: 1.2rem;
+    }
   </style>
 </head>
 <body>
+  <h1>Nikotinkalkulator</h1>
+
   <div class="pack" id="vape-section">
     <h2>E-sigarett</h2>
     <label for="vapeVolume">Volum (mL)</label>
@@ -83,11 +114,42 @@
     <div class="result" id="snusResult"></div>
   </div>
 
+  <div class="explanation">
+    <h2>Slik tolker du tallene fra Nikotin‑konvertereren</h2>
+    <p>Denne konvertereren hjelper deg å sammenligne nikotinmengden i ulike produkter. Den ser både på totalt nikotininnhold og, viktigere, hvor mye nikotin som faktisk tas opp i kroppen. Husk at nikotinopptak varierer fra person til person og avhenger av hvordan du bruker produktet. Tallene her er basert på gjennomsnittsverdier fra forskning.</p>
+
+    <h3>Hvor mye nikotin tas egentlig opp i kroppen?</h3>
+    <p>Det er stor forskjell på totalt nikotininnhold i et produkt og hvor mye kroppen din tar opp. Her er tallene vi bruker for beregning av opptatt nikotin:</p>
+    <ul>
+      <li><strong>E-sigaretter (med nikotinsalter): Cirka 50 % opptak</strong>
+        <p>Når du bruker en e-sigarett med nikotinsalter, anslår vi at kroppen din tar opp rundt halvparten (50 %) av nikotinen i dampen.</p>
+        <p><em>Kilde:</em> Dette tallet er basert på forskning. For eksempel fant en studie publisert i ACS Chemical Research in Toxicology (Goniewicz et al.) at rundt 47 % av nikotinen fra e-sigaretter med nikotinsalter (av typen JUUL) ble tatt opp i kroppen. 50 % er derfor en god og vanlig brukt tilnærming.</p>
+      </li>
+      <li><strong>Snus (tradisjonell type): Cirka 21 % opptak</strong>
+        <p>For snus anslår vi at kroppen tar opp omtrent 21 % av nikotinen fra en porsjon. Dette er basert på et opptak på 3,75 mg fra en porsjon som inneholder 18 mg nikotin.</p>
+        <p><em>Kilde:</em> Generelt viser forskning og informasjon fra produsenter (som Swedish Match) at mellom 10 % og 20 % av nikotinen i tradisjonell porsjonssnus tas opp. Vårt anslag på ca. 21 % ligger i øvre del av dette sjiktet og brukes her som et gjennomsnitt for å beregne opptak fra snus der du selv oppgir nikotinmengden. Opptaket kan variere noe mellom ulike snusmerker og typer. (Merk: Helhvite nikotinposer kan ha andre, ofte høyere, opptaksrater).</p>
+      </li>
+      <li><strong>Til sammenligning – Sigaretter: 1,1 mg opptatt nikotin per sigarett</strong>
+        <p>Når vi sammenligner hvor mye nikotin du får i deg med antall sigaretter, bruker vi et anslag på at kroppen tar opp cirka 1,1 mg nikotin fra én røykt sigarett.</p>
+        <p><em>Kilde:</em> Dette er et anerkjent gjennomsnitt fra tobakksforskning og brukes ofte av helsemyndigheter (f.eks. National Institute on Drug Abuse, NIDA, i USA opererer med 1–2 mg per sigarett). Mengden kan variere noe mellom sigarettmerker og røyketeknikk.</p>
+      </li>
+    </ul>
+
+    <h3>Andre tall i kalkulatoren:</h3>
+    <ul>
+      <li><strong>Totalt nikotininnhold:</strong> Dette er mengden nikotin du selv legger inn for snus (mg per porsjon) eller som beregnes for e-sigaretter (volum i mL ganger styrke i mg/mL).</li>
+      <li><strong>"Tørrvekt"-sammenligning:</strong> Kalkulatoren viser også hvor mange sigaretter produktet tilsvarer i "tørrvekt". Her sammenlignes produktets totale nikotininnhold med en sigarett som antas å inneholde 10 mg nikotin i selve tobakken. Dette er før man tar hensyn til hvor mye som tas opp i kroppen.</li>
+    </ul>
+
+    <h3>Viktig å huske på:</h3>
+    <p>Disse beregningene gir deg et anslag for å sammenligne produkter. Hvor mye nikotin du faktisk får i deg, og hvor raskt, påvirkes av ditt personlige bruksmønster. Alle nikotinprodukter innebærer helserisiko og er avhengighetsskapende. Dette prosjektet er til personlig bruk, og hovedsakelig ment som en øvelse i utvikling av web-apper. Ikke bruk dette til noe annet enn for å skape et visst bilde av situasjonen. </p>
+  </div>
+
   <script>
-    const mgPerCigarette = 1.1;             // mg systemisk nikotin per sigarett
-    const dryWeightPerCig = 10;            // mg nikotin per sigarett i tørrvekt
-    const eSigAbsFraction = 0.5;           // 50 % opptak e-sig
-    const snusAbsFraction = 3.75 / 18;     // ≈20,8 % opptak snus
+    const mgPerCigarette = 1.1;
+    const dryWeightPerCig = 10;
+    const eSigAbsFraction = 0.5;
+    const snusAbsFraction = 3.75 / 18;
 
     function formatResult(lines) {
       return lines.join('\n');
@@ -118,7 +180,7 @@
         `Dette tilsvarer **${dryCigs}** sigaretter i tørrvekt.`,
         `Av dette tas ${absNic} mg opp av kroppen, noe som tilsvarer **${absCigs}** sigaretter.`
       ];
-      document.getElementById('snusResult').innerHTML = formatResult(lines).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      document.getElementById('snusResult').innerHTML = formatResult(lines).replace(/\*\*(.*?)\*\*/g, '<strong'>$1</strong>');
     }
   </script>
 </body>
